@@ -19,7 +19,7 @@ Decimal.add = function(floatingNumberOrDecimal1, floatingNumberOrDecimal2, preci
   precision = parseInt(precision);
   var decimal1 = floatingNumberOrDecimal1 instanceof Decimal ? floatingNumberOrDecimal1 : new Decimal(floatingNumberOrDecimal1, precision);
   var decimal2 = floatingNumberOrDecimal2 instanceof Decimal ? floatingNumberOrDecimal2 : new Decimal(floatingNumberOrDecimal2, precision);
-  var result = Math.round(decimal1.integer + decimal2.integer);
+  var result = decimal1.integer + decimal2.integer;
   return Decimal.fromInteger(result, precision);
 }
 
@@ -27,7 +27,7 @@ Decimal.subtract = function(floatingNumberOrDecimal1, floatingNumberOrDecimal2, 
   precision = parseInt(precision);
   var decimal1 = floatingNumberOrDecimal1 instanceof Decimal ? floatingNumberOrDecimal1 : new Decimal(floatingNumberOrDecimal1, precision);
   var decimal2 = floatingNumberOrDecimal2 instanceof Decimal ? floatingNumberOrDecimal2 : new Decimal(floatingNumberOrDecimal2, precision);
-  var result = Math.round(decimal1.integer - decimal2.integer);
+  var result = decimal1.integer - decimal2.integer;
   return Decimal.fromInteger(result, precision);
 }
 
@@ -35,7 +35,7 @@ Decimal.multiply = function(floatingNumberOrDecimal1, floatingNumberOrDecimal2, 
   precision = parseInt(precision);
   var decimal1 = floatingNumberOrDecimal1 instanceof Decimal ? floatingNumberOrDecimal1 : new Decimal(floatingNumberOrDecimal1, precision);
   var decimal2 = floatingNumberOrDecimal2 instanceof Decimal ? floatingNumberOrDecimal2 : new Decimal(floatingNumberOrDecimal2, precision);
-  var result = Math.round(decimal1.integer * decimal2.integer);
+  var result = Math.round((decimal1.integer * decimal2.integer) * Math.pow(10, precision));
   return Decimal.fromInteger(result, precision);
 }
 
@@ -43,7 +43,7 @@ Decimal.divide = function(floatingNumberOrDecimal1, floatingNumberOrDecimal2, pr
   precision = parseInt(precision);
   var decimal1 = floatingNumberOrDecimal1 instanceof Decimal ? floatingNumberOrDecimal1 : new Decimal(floatingNumberOrDecimal1, precision);
   var decimal2 = floatingNumberOrDecimal2 instanceof Decimal ? floatingNumberOrDecimal2 : new Decimal(floatingNumberOrDecimal2, precision);
-  var result = Math.round(decimal1.integer / decimal2.integer);
+  var result = Math.round((decimal1.integer / decimal2.integer) * Math.pow(10, precision));
   return Decimal.fromInteger(result, precision);
 }
 
@@ -52,23 +52,20 @@ Decimal.prototype.toFloat = function() {
 }
 
 Decimal.prototype.add = function(floatingNumberOrDecimal) {
-  this.integer = Decimal.add(this, floatingNumberOrDecimal, this.precision).integer;
-  return this;
+  return Decimal.add(this, floatingNumberOrDecimal, this.precision);
 }
 
 Decimal.prototype.subtract = function(floatingNumberOrDecimal) {
-  this.integer = Decimal.subtract(this, floatingNumberOrDecimal, this.precision).integer;
-  return this;
+  return Decimal.subtract(this, floatingNumberOrDecimal, this.precision);
 }
 
 Decimal.prototype.multiply = function(floatingNumberOrDecimal) {
-  this.integer = Decimal.multiply(this, floatingNumberOrDecimal, this.precision).integer;
-  return this;
+  return Decimal.multiply(this, floatingNumberOrDecimal, this.precision);
 }
 
 Decimal.prototype.divide = function(floatingNumberOrDecimal) {
-  this.integer = Decimal.divide(this, floatingNumberOrDecimal, this.precision).integer;
-  return this;
+  return Decimal.divide(this, floatingNumberOrDecimal, this.precision);
 }
 
 exports.module = Decimal;
+
