@@ -1,0 +1,26 @@
+{
+  "name": "js-decimal",
+  "version": "0.1.2",
+  "description": "A Decimal type with safe floating-point operations support.",
+  "main": "decimal.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ggondim/JavaScript.Decimal.git"
+  },
+  "keywords": [
+    "JavaScript",
+    "decimal",
+    "float",
+    "number",
+    "currency"
+  ],
+  "author": "Gustavo Gondim (https://github.com/ggondim)",
+  "license": " AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/ggondim/JavaScript.Decimal/issues"
+  },
+  "homepage": "https://github.com/ggondim/JavaScript.Decimal"
+}
