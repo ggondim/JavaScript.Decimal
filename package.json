@@ -1,6 +1,6 @@
 {
   "name": "js-decimal",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A Decimal type with safe floating-point operations support.",
   "main": "decimal.js",
   "scripts": {
