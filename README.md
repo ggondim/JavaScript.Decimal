@@ -21,7 +21,7 @@ var result = 0.1 * 0.2;
 console.log(result); // prints 0.020000000000000004
 ``` 
 
-According to the [Floating-Point Guide](http://floating-point-gui.de/basic/), there is three solutions for this problem:
+According to the [Floating-Point Guide](http://floating-point-gui.de/basic/), there are three solutions for this problem:
 
 > *If you really need your results to add up exactly, especially when you work with money: use a special decimal datatype.*
 
